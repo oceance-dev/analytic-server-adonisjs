@@ -8,8 +8,8 @@ export default class extends BaseSchema {
       table.string('id').primary()
       table.string('user_id').references('users.id').onDelete('CASCADE')
       table.string('domain').nullable()
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
+      table.datetime('created_at')
+      table.datetime('updated_at')
     })
   }
 

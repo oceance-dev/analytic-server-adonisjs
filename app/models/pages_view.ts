@@ -19,6 +19,12 @@ export default class PagesView extends BaseModel {
   @column()
   declare device: Object
 
+  @column()
+  declare os: Object
+
+  @column()
+  declare browser: Object
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

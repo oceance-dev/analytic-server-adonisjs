@@ -9,9 +9,11 @@ export default class extends BaseSchema {
       table.string('site_id').references('sites.id').onDelete('CASCADE')
       table.string('path').nullable()
       table.string('referrer').nullable()
-      table.string('device').nullable()
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
+      table.json('device').nullable()
+      table.json('os').nullable()
+      table.json('browser').nullable()
+      table.datetime('created_at')
+      table.datetime('updated_at')
     })
   }
 
