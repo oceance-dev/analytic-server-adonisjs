@@ -1,14 +1,14 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
 import Site from './site.js'
-import type { HasOne } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class PagesView extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column()
-  declare site_id: string
+  declare siteId: string
 
   @column()
   declare path: string
@@ -31,6 +31,6 @@ export default class PagesView extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @hasOne(() => Site)
-  declare site: HasOne<typeof Site>
+  @belongsTo(() => Site)
+  declare site: BelongsTo<typeof Site>
 }

@@ -4,6 +4,11 @@ import type { HttpContext } from '@adonisjs/core/http'
 
 export default class SitesController {
 
+    async index({ response }: HttpContext) {
+        const sites = await Site.all()
+        return response.ok({ sites })
+    }
+
     async store({ request, response }: HttpContext) {
         const payload = await request.validateUsing(createPostSites);
 

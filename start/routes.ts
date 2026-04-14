@@ -7,6 +7,7 @@
 |
 */
 
+import AnalysesController from '#controllers/analyses_controller'
 import CollectsController from '#controllers/collects_controller'
 import SitesController from '#controllers/sites_controller'
 import UsersController from '#controllers/users_controller'
@@ -24,6 +25,13 @@ router.get('/analytic.js', async ({ response }) => {
   return response.download('resources/scripts/analytic.js')
 })
 router.post('/collect', [CollectsController, 'store'])
+
+router.group(() => {
+  router.get('/analyses', [AnalysesController, 'index'])
+  router.get('/sites', [SitesController, 'index'])
+
+}).prefix('/api')
+
 
 
 router.post('/api/users', [UsersController, 'store'])

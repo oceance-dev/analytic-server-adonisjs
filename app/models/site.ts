@@ -12,6 +12,9 @@ export default class Site extends BaseModel {
   declare user_id: string
 
   @column()
+  declare name: string
+
+  @column()
   declare domain: string
 
   @column.dateTime({ autoCreate: true })
