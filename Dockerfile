@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --legacy-peer-deps
 COPY . .
+RUN cp .env.example .env
 RUN node ace build
 
 # ---- Production stage ----
