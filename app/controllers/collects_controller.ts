@@ -1,4 +1,3 @@
-import Site from '#models/site'
 import { CollectService } from '#services/collect_service'
 import { SiteService } from '#services/site_service'
 import { createPostCollect } from '#validators/collect'
